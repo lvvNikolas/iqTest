@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "options": [
+        { "id": "a", "text": "Berlin" },
+        { "id": "b", "text": "Madrid" },
+        { "id": "c", "text": "Paris" },
+        { "id": "d", "text": "Lisbon" }
+      ],
+      "correctOption": "c"
+    },
+    {
+      "id": 2,
+      "question": "Which one is the largest planet in our solar system?",
+      "options": [
+        { "id": "a", "text": "Earth" },
+        { "id": "b", "text": "Mars" },
+        { "id": "c", "text": "Jupiter" },
+        { "id": "d", "text": "Saturn" }
+      ],
+      "correctOption": "c"
+    },
+    {
+      "id": 3,
+      "question": "Identify the animal in the picture",
+      "image": "https://example.com/lion.jpg",
+      "options": [
+        { "id": "a", "text": "Tiger" },
+        { "id": "b", "text": "Lion" },
+        { "id": "c", "text": "Leopard" },
+        { "id": "d", "text": "Cheetah" }
+      ],
+      "correctOption": "b"
+    },
+    {
+      "id": 4,
+      "question": "Type the name of this fruit",
+      "image": "https://example.com/apple.jpg",
+      "correctTextAnswer": "apple"
+    }
+  ]
+  
