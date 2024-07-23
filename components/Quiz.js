@@ -1,13 +1,14 @@
 // components/Quiz.js
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Question from './Question';
 import AnswerOption from './AnswerOption';
 import TextInputAnswer from './TextInputAnswer';
 import ImageQuestion from './ImageQuestion';
 import questions from '../data.json';
 
-const Quiz = ({ onComplete }) => {
+const Quiz = ({ onComplete, onBack }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
@@ -62,6 +63,9 @@ const Quiz = ({ onComplete }) => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.backButton} onPress={onBack}>
+        <Icon name="arrow-back" size={30} color="#34495e" />
+      </TouchableOpacity>
       <Text style={styles.timerText}>Время осталось: {formatTime(timeLeft)}</Text>
       <Text style={styles.questionNumberText}>Вопрос {currentQuestionIndex + 1} / {questions.length}</Text>
       <Question question={currentQuestion.question} />
@@ -88,6 +92,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#f0f4f7',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
   },
   timerText: {
     fontSize: 22,

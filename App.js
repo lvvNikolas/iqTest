@@ -27,10 +27,14 @@ const App = () => {
     setCompleted(true);
   };
 
+  const handleBack = () => {
+    setStarted(false);
+  };
+
   return (
     <View style={styles.container}>
       {!started && !completed && <StartScreen onStart={handleStart} />}
-      {started && !completed && <Quiz onComplete={handleComplete} />}
+      {started && !completed && <Quiz onComplete={handleComplete} onBack={handleBack} />}
       {completed && (
         <FinalScreen
           correctAnswers={correctAnswers}
