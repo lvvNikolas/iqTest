@@ -62,8 +62,8 @@ const Quiz = ({ onComplete }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.timerText}>Time left: {formatTime(timeLeft)}</Text>
-      <Text style={styles.questionNumberText}>Question {currentQuestionIndex + 1} / {questions.length}</Text>
+      <Text style={styles.timerText}>Время осталось: {formatTime(timeLeft)}</Text>
+      <Text style={styles.questionNumberText}>Вопрос {currentQuestionIndex + 1} / {questions.length}</Text>
       <Question question={currentQuestion.question} />
       {currentQuestion.image && <ImageQuestion imageUrl={currentQuestion.image} />}
       {currentQuestion.options ? (
@@ -86,17 +86,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20
+    padding: 20,
+    backgroundColor: '#f0f4f7',
   },
   timerText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#34495e',
+    marginBottom: 20,
   },
   questionNumberText: {
-    fontSize: 18,
-    marginBottom: 10
-  }
+    fontSize: 20,
+    color: '#7f8c8d',
+    marginBottom: 10,
+  },
 });
 
 export default Quiz;

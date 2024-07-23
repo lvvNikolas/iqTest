@@ -10,8 +10,10 @@ const App = () => {
   const [completed, setCompleted] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
+  const [userData, setUserData] = useState({ name: '', age: '', educationLevel: '' });
 
-  const handleStart = () => {
+  const handleStart = (name, age, educationLevel) => {
+    setUserData({ name, age, educationLevel });
     setStarted(true);
     setCompleted(false);
     setCorrectAnswers(0);
@@ -29,15 +31,24 @@ const App = () => {
     <View style={styles.container}>
       {!started && !completed && <StartScreen onStart={handleStart} />}
       {started && !completed && <Quiz onComplete={handleComplete} />}
-      {completed && <FinalScreen correctAnswers={correctAnswers} totalQuestions={totalQuestions} onRestart={handleStart} />}
+      {completed && (
+        <FinalScreen
+          correctAnswers={correctAnswers}
+          totalQuestions={totalQuestions}
+          onRestart={handleStart}
+          name={userData.name}
+          age={userData.age}
+          educationLevel={userData.educationLevel}
+        />
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default App;
